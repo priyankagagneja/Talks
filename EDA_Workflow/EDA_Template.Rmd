@@ -1,0 +1,70 @@
+---
+title: "Defining My EDA Template"
+subtitle: "Get to know your data better and faster"
+author: "Priyanka Gagneja"
+date: "`r Sys.Date()`"
+params:
+  data: sdg_hackathon_data
+  configure_PCA: FALSE
+  read_file:
+    label: "Read a csv ?"
+    value: FALSE
+  file:
+    label: "Input dataset:"
+    value: sdg_hackathon_data.csv
+    input: file
+  run_what: 
+    label: "Select Report you want to run:"
+    value: "DataExplorer"
+    input: select
+    choices: ["DataExplorer", "dataReporter", "skimr"]
+---
+
+```{r load_libraries}
+library("pacman")
+p_load("DataExplorer","dataReporter","skimr")
+
+```
+
+
+```{r reading_data}
+
+# data: 
+#     label: "Select dataset:"
+#     value: ""
+#     input: select
+#     choices: "`r ls()`"
+
+if(params$read_file){
+  df <- read.csv(params$file)
+} else {
+df <- params$data
+}
+
+run_what <- params$run_what
+
+print(paste("Running",run_what))
+
+```
+
+
+```{r eval=FALSE}
+# In order to use a dataframe from a global environment, run this in console
+rmarkdown::render("code/EDA_Template.Rmd", params=list(data=sdg_hackathon_data))
+
+```
+
+
+```{r DataExplorer, eval = if(run_what == "DataExplorer") TRUE else FALSE}
+create_report(df, config = configure_report(add_plot_prcomp = params$configure_PCA))
+```
+
+
+```{r dataReporter, eval = if(run_what == "dataReporter") TRUE else FALSE}
+makeDataReport(df)
+```
+
+
+```{r skimr, eval = if(run_what == "skimr") TRUE else FALSE}
+skim(df)
+```

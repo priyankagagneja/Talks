@@ -22,7 +22,8 @@ library(tidyverse)
 
 ## About me
 
-.left-column[<br> <br> ![me](img/me.jpeg)] 
+.left-column[<br> <br> ![me](img/me.jpeg)
+] 
 .right-column[
 * Data Science Practitioner/ Freelancer
     * Data Science Consultant with OnPoint Insights
@@ -31,6 +32,11 @@ library(tidyverse)
 * MS, Applied Economics from Boston College
 * B.Tech and MBA in India
 * Women in DS, Women in Analytics Ambassador
+
+Contact: <br>
+Twitter: @priyankaigit <br>
+Linkedin: priyanka-gagneja <br>
+Blog: https://fun-with-data.netlify.app/
 ]
 
 ---
@@ -220,6 +226,13 @@ https://github.com/smartinsightsfromdata/rpivotTable
 https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html
 
 https://github.com/pheymanss/chronicle
+
+
+
+For the bonus packages
+https://choonghyunryu.github.io/dlookr/articles/introduce.html
+
+https://descriptr.rsquaredacademy.com/
 
 ---
 
